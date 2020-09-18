@@ -2,12 +2,17 @@
 // Created by dani on 17/9/20.
 //
 
+#include <cstdlib>
 #include "Node.h"
 
-Node::Node(int new_data) : data(new_data), next(nullptr) {}
+Node::Node(int new_data)
+    : data((int*) std::malloc(sizeof(int))), next(nullptr)
+    {
+    *data = new_data;
+}
 
-int Node::getData() {
-    return data;
+int Node::getDataValue() {
+    return *data;
 }
 
 Node* Node::getNext() {
