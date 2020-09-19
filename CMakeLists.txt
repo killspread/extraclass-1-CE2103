@@ -12,5 +12,5 @@ find_package(Qt5Widgets REQUIRED)
 #set(CMAKE_AUTOUIC ON)
 #set(CMAKE_AUTORCC ON)
 
-add_executable(extraclass_1_CE2103 main.cpp Structures/LinkedList.cpp Structures/LinkedList.h Structures/Node.cpp Structures/Node.h)
+add_executable(extraclass_1_CE2103 main.cpp Structures/LinkedList.cpp Structures/LinkedList.h Structures/Node.cpp Structures/Node.h Structures/Graph.cpp Structures/Graph.h)
 target_link_libraries(extraclass_1_CE2103 Qt5::Widgets)

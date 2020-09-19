@@ -12,7 +12,7 @@
  */
 class LinkedList {
     private:
-        int* length;
+        int length;
         Node* head;
         Node* tail;
 
