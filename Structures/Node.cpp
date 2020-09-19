@@ -5,7 +5,7 @@
 #include "Node.h"
 
 Node::Node(int new_data)
-    : data(new_data), weight(0), next(nullptr), adjacent(nullptr) {}
+    : data(new_data), next(nullptr), adjacent(nullptr) {}
 
 int Node::getData() {
     return data;

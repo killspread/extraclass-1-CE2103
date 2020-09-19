@@ -12,7 +12,7 @@
  */
 class LinkedList {
     private:
-        int length;
+        int length = 0;
         Node* head;
         Node* tail;
 
@@ -24,10 +24,37 @@ class LinkedList {
         LinkedList();
 
         /**
+         * @brief Getter for the "head" attribute.
+         * @return The "head" pointer type attribute.
+         */
+        Node* getHead();
+
+        /**
+         * @brief Getter for the "length" attribute.
+         * @return The value of the"length" attribute.
+         */
+        int getLength();
+
+        /**
          * @brief Adds a new node at the back of the linked list with the value entered as a parameter.
          * @param data The value that the new node will contain.
          */
         void append(int data);
+
+        /**
+         * @brief Checks if a node with the entered value exists inside the list.
+         * @param data The value to be checked.
+         * @return True if a node with data was found, false otherwise.
+         */
+        bool exists(int data);
+
+        /**
+         * @brief Checks if two nodes, each with one of the entered value exist inside the list.
+         * @param first_data The first value to be checked.
+         * @param second_value The second value to be checked.
+         * @return True if both nodes exist, false otherwise.
+         */
+        bool exists(int first_data, int second_data);
 
         /**
          * @brief Prints the list to the console.

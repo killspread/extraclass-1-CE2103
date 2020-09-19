@@ -11,7 +11,7 @@
 class Node {
     private:
         int data;
-        int weight;
+        int weight = 0;
         Node* next;
         Node* adjacent;
 

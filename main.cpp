@@ -1,14 +1,17 @@
 
 #include <Structures/LinkedList.h>
+#include <iostream>
+#include <Structures/Graph.h>
 
 int main()
 {
-    LinkedList* list = new LinkedList;
-    list->append(1);
-    list->append(2);
-    list->append(0);
-    list->append(4);
-    list->append(5);
-    list->printList();
+    Graph graph;
+    graph.addVertex(2);
+    graph.addVertex(3);
+    graph.addVertex(5);
+    graph.addVertex(7);
+    graph.addVertex(9);
+    graph.addVertex(11);
+    graph.addVertex(13);
     return 0;
 }
