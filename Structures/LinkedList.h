@@ -45,6 +45,14 @@ class LinkedList {
         void append(int data);
 
         /**
+         * @brief Adds a new node at the back of the linked list with the value entered as a parameter.
+         * It also adds a weight to the new node.
+         * @param data The value that the new node will contain.
+         * @param weight The weight assigned to the new node.
+         */
+        void append(int data, int weight);
+
+        /**
          * @brief Checks if a node with the entered value exists inside the list.
          * @param data The value to be checked.
          * @return True if a node with data was found, false otherwise.
@@ -69,7 +77,7 @@ class LinkedList {
         /**
          * @brief Prints the list to the console.
          */
-        void printList();
+        void printList(bool isAdjacent);
 };
 
 #endif //EXTRACLASS_1_CE2103_LINKEDLIST_H

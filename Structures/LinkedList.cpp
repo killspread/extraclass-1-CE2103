@@ -31,11 +31,28 @@ void LinkedList::append(int data) {
     length++;
 }
 
-void LinkedList::printList() {
+void LinkedList::append(int data, int weight) {
+    Node* node = new Node(data, weight);
+
+    if (length == 0) {
+        head = node;
+        tail = node;
+    }
+    else {
+        tail->setNext(node);
+        tail = node;
+    }
+    length++;
+}
+
+void LinkedList::printList(bool isAdjacent) {
     Node* tmp = head;
     std::string output = "[";
     for (int i = 0; i < length; i++) {
         output += std::to_string(tmp->getData());
+        if (isAdjacent) {
+            output += ":" + std::to_string(tmp->getWeight());
+        }
         tmp = tmp->getNext();
 
         if (i == length - 1) {
@@ -94,13 +111,8 @@ bool LinkedList::exists(int first_data, int second_data) {
 
 Node *LinkedList::getByData(int data) {
     Node* tmp = head;
-    for (int i = 0; i < length; ++i) {
-        if (tmp->getData() == data) {
-            break;
-        }
-        else {
-            tmp = tmp->getNext();
-        }
+    while (tmp->getData() != data) {
+        tmp = tmp->getNext();
     }
     return tmp;
 }

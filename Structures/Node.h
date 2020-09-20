@@ -18,7 +18,7 @@ class Node {
         int data;
         int weight = 0;
         Node* next;
-        LinkedList* adjacent;
+        LinkedList* adjacencyList;
 
     public:
         /**
@@ -26,7 +26,15 @@ class Node {
          * It sets "next" to nullptr and the value of data "data" to the entered paremeter.
          * @param new_data The value that'll be assigned to the "data" attribute.
          */
-        explicit Node(int new_data);
+        Node(int new_data);
+
+        /**
+         * @brief Constructor for the Node class.
+         * It sets "next" to nullptr and the value of data "data" to the entered paremeter.
+         * @param new_data The value that'll be assigned to the "data" attribute.
+         * @param weight The value that'll be assigned to the "weight" attribute.
+         */
+        Node(int new_data, int weight);
 
         /**
          * @brief Getter for the "data" attribute.
@@ -47,10 +55,10 @@ class Node {
         Node* getNext();
 
         /**
-         * @brief Getter for the "adjacent" attribute.
-         * @return The "adjacent" pointer type attribute.
+         * @brief Getter for the "adjacencyList" attribute.
+         * @return The "adjacencyList" pointer type attribute.
          */
-        LinkedList* getAdjacent();
+        LinkedList* getAdjacencyList();
 
         /**
          * @brief Setter for the "next" pointer type attribute.
