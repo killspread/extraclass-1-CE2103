@@ -5,6 +5,11 @@
 #ifndef EXTRACLASS_1_CE2103_NODE_H
 #define EXTRACLASS_1_CE2103_NODE_H
 
+#include "LinkedList.h"
+
+class LinkedList; // This forward declaration is used because without it, the program doesn't compile. This way, the
+                  // the compiler knows about the class LinkedList before it's declaration as a pointer below.
+
 /**
  * @brief A class that represents a node used in linked lists.
  */
@@ -13,7 +18,7 @@ class Node {
         int data;
         int weight = 0;
         Node* next;
-        Node* adjacent;
+        LinkedList* adjacent;
 
     public:
         /**
@@ -33,7 +38,7 @@ class Node {
          * @brief Getter for the "weight" attribute.
          * @return The value stored in the "weight" attribute.
          */
-        int getWeigth();
+        int getWeight();
 
         /**
          * @brief Getter for the "next" attribute.
@@ -45,19 +50,13 @@ class Node {
          * @brief Getter for the "adjacent" attribute.
          * @return The "adjacent" pointer type attribute.
          */
-        Node* getAdjacent();
+        LinkedList* getAdjacent();
 
         /**
          * @brief Setter for the "next" pointer type attribute.
          * @param new_next The new value that'll be assigned to the "next" attribute.
          */
         void setNext(Node* new_next);
-
-        /**
-         * @brief Setter for the "adjacent" pointer type attribute.
-         * @param new_adjacent The new value that'll be assigned to the "adjacent" attribute.
-         */
-        void setAdjacent(Node* new_adjacent);
 };
 
 

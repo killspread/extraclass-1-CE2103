@@ -11,7 +11,7 @@ int Node::getData() {
     return data;
 }
 
-int Node::getWeigth() {
+int Node::getWeight() {
     return weight;
 }
 
@@ -19,7 +19,7 @@ Node* Node::getNext() {
     return next;
 }
 
-Node *Node::getAdjacent() {
+LinkedList *Node::getAdjacent() {
     return adjacent;
 }
 
@@ -27,7 +27,4 @@ void Node::setNext(Node* new_next) {
     next = new_next;
 }
 
-void Node::setAdjacent(Node *new_adjacent) {
-    adjacent = new_adjacent;
-}
 

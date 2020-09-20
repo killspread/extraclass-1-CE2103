@@ -13,7 +13,7 @@
  */
 class Graph {
     private:
-        LinkedList verticesList;
+        LinkedList* verticesList;
 
     public:
         /**
@@ -27,7 +27,7 @@ class Graph {
          * @param value The value that the new vertex will contain. It must not be one that already in the graph.
          */
         void addVertex(int value);
-        void addEdge(int first_vertex, int second_vertex, int weight);
+        void addEdge(int first_value, int second_value, int weight);
 };
 
 

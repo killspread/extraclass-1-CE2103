@@ -2,7 +2,6 @@
 // Created by dani on 17/9/20.
 //
 
-#include <cstdlib>
 #include <string>
 #include <iostream>
 #include "LinkedList.h"
@@ -91,4 +90,17 @@ bool LinkedList::exists(int first_data, int second_data) {
         }
     }
     return result;
+}
+
+Node *LinkedList::getByData(int data) {
+    Node* tmp = head;
+    for (int i = 0; i < length; ++i) {
+        if (tmp->getData() == data) {
+            break;
+        }
+        else {
+            tmp = tmp->getNext();
+        }
+    }
+    return tmp;
 }

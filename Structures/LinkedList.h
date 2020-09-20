@@ -7,6 +7,9 @@
 
 #include "Node.h"
 
+class Node; // This forward declaration is used because without it, the program doesn't compile. This way, the
+            // the compiler knows about the class Node before it's declaration as a pointer below.
+
 /**
  * @brief A class that represents a singly linked list.
  */
@@ -55,6 +58,13 @@ class LinkedList {
          * @return True if both nodes exist, false otherwise.
          */
         bool exists(int first_data, int second_data);
+
+        /**
+         * @brief Searches for a node in the list with the specified data value.
+         * @param data The value of the node to be searched for.
+         * @return A pointer to the found node.
+         */
+        Node* getByData(int data);
 
         /**
          * @brief Prints the list to the console.
