@@ -12,11 +12,10 @@
  * @brief A class that represents a undirected weighted graph list.
  */
 class Graph {
-//    private:
-//        LinkedList* verticesList;
+    private:
+        LinkedList* verticesList;
 
     public:
-    LinkedList* verticesList;
 
     /**
          * @brief Constructor for the LinkedList class.
@@ -37,6 +36,15 @@ class Graph {
          * @param weight The weight of the new vertex to be added
          */
         void addEdge(int first_value, int second_value, int weight);
+
+        /**
+         * @brief Performs the Floyd-Warshall algorithm, and returns the shortest weight that needs to be traversed in
+         * order to go from one vertex to another.
+         * @param first_value The value of the beginning vertex.
+         * @param second_value The value of the ending vertex.
+         * @return The minimun weight of the path between both vertices.
+         */
+        int floydWarshall(int first_value, int second_value);
 
         /**
          * @brief Prints the adjacency list of a vertex.

@@ -55,6 +55,42 @@ void Graph::addEdge(int first_value, int second_value, int weight) {
     }
 }
 
+int Graph::floydWarshall(int first_value, int second_value) {
+    int vertex_number = verticesList->getLength() ;
+    int floyd_matrix[vertex_number][vertex_number];
+    int infinity = 999999;
+    Node* first_vertex;
+
+    for (int i = 0; i < vertex_number; i++) {
+        first_vertex = verticesList->getByIndex(i);
+        for (int j = 0; j < vertex_number; j++) {
+            if (i == j) {
+                floyd_matrix[i][j] = 0;
+            }
+            else {
+                bool exists = first_vertex->getAdjacencyList()->exists(j);
+                if (exists) {
+                    floyd_matrix[i][j] = first_vertex->getAdjacencyList()->getByData(j)->getWeight();
+                }
+                else {
+                    floyd_matrix[i][j] = infinity;
+                }
+            }
+        }
+    }
+
+    for (int k = 0; k < vertex_number; k++) {
+        for (int i = 0; i < vertex_number; i++) {
+            for (int j = 0; j < vertex_number; j++) {
+                if (floyd_matrix[i][j] > floyd_matrix[i][k] + floyd_matrix[k][j]) {
+                    floyd_matrix[i][j] = floyd_matrix[i][k] + floyd_matrix[k][j];
+                }
+            }
+        }
+    }
+    return floyd_matrix[first_value][second_value];
+}
+
 void Graph::printAdjacencyList(int vertex) {
     ((verticesList->getByData(vertex))->getAdjacencyList())->printList(true);
 }

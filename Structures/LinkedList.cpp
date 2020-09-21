@@ -45,27 +45,6 @@ void LinkedList::append(int data, int weight) {
     length++;
 }
 
-void LinkedList::printList(bool isAdjacent) {
-    Node* tmp = head;
-    std::string output = "[";
-    for (int i = 0; i < length; i++) {
-        output += std::to_string(tmp->getData());
-        if (isAdjacent) {
-            output += ":" + std::to_string(tmp->getWeight());
-        }
-        tmp = tmp->getNext();
-
-        if (i == length - 1) {
-            output += "]";
-        }
-        else {
-            output += ", ";
-        }
-    }
-
-    std::cout << output << "\n";
-}
-
 bool LinkedList::exists(int data) {
     Node* tmp = head;
 
@@ -109,10 +88,40 @@ bool LinkedList::exists(int first_data, int second_data) {
     return result;
 }
 
-Node *LinkedList::getByData(int data) {
+Node* LinkedList::getByData(int data) {
     Node* tmp = head;
     while (tmp->getData() != data) {
         tmp = tmp->getNext();
     }
     return tmp;
+}
+
+Node* LinkedList::getByIndex(int i) {
+    Node* tmp = head;
+    for (int j = 0; j < i; j++) {
+        tmp = tmp->getNext();
+    }
+    return tmp;
+}
+
+
+void LinkedList::printList(bool isAdjacent) {
+    Node* tmp = head;
+    std::string output = "[";
+    for (int i = 0; i < length; i++) {
+        output += std::to_string(tmp->getData());
+        if (isAdjacent) {
+            output += ":" + std::to_string(tmp->getWeight());
+        }
+        tmp = tmp->getNext();
+
+        if (i == length - 1) {
+            output += "]";
+        }
+        else {
+            output += ", ";
+        }
+    }
+
+    std::cout << output << "\n";
 }

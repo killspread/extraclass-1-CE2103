@@ -75,6 +75,13 @@ class LinkedList {
         Node* getByData(int data);
 
         /**
+         * @brief Iterates through the list and returns the node on the specified index.
+         * @param i The index asked for
+         * @return A pointer to the found node.
+         */
+        Node* getByIndex(int i);
+
+        /**
          * @brief Prints the list to the console.
          */
         void printList(bool isAdjacent);
