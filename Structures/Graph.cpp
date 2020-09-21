@@ -55,12 +55,19 @@ void Graph::addEdge(int first_value, int second_value, int weight) {
     }
 }
 
+//TODO check if both values exist on interface
+//TODO only execute Floyd once, and reconstruct path everytime asked
 int Graph::floydWarshall(int first_value, int second_value) {
     int vertex_number = verticesList->getLength() ;
+
     int floyd_matrix[vertex_number][vertex_number];
+    int path_reconstruct[vertex_number][vertex_number];
+    LinkedList pathList = LinkedList();
+
     int infinity = 999999;
     Node* first_vertex;
 
+    // The graph is converted to a matrix, and the matrix used for path reconstruction is made
     for (int i = 0; i < vertex_number; i++) {
         first_vertex = verticesList->getByIndex(i);
         for (int j = 0; j < vertex_number; j++) {
@@ -71,24 +78,47 @@ int Graph::floydWarshall(int first_value, int second_value) {
                 bool exists = first_vertex->getAdjacencyList()->exists(j);
                 if (exists) {
                     floyd_matrix[i][j] = first_vertex->getAdjacencyList()->getByData(j)->getWeight();
+                    path_reconstruct[i][j] = j;
                 }
                 else {
                     floyd_matrix[i][j] = infinity;
+                    path_reconstruct[i][j] = -1;
                 }
             }
         }
     }
 
+    // Actual Flody-Warshall algorithm with path reconstruction modification
     for (int k = 0; k < vertex_number; k++) {
         for (int i = 0; i < vertex_number; i++) {
             for (int j = 0; j < vertex_number; j++) {
                 if (floyd_matrix[i][j] > floyd_matrix[i][k] + floyd_matrix[k][j]) {
                     floyd_matrix[i][j] = floyd_matrix[i][k] + floyd_matrix[k][j];
+                    path_reconstruct[i][j] = path_reconstruct[i][k]; // Path reconstruction modification
                 }
             }
         }
     }
-    return floyd_matrix[first_value][second_value];
+
+    // Path reconstruction
+    if (path_reconstruct[first_value][second_value] != -1) {
+        pathList.append(first_value);
+        int tmp = first_value;
+        while (tmp != second_value) {
+            tmp = path_reconstruct[tmp][second_value];
+            pathList.append(tmp);
+        }
+        std::cout << "Route = ";
+        pathList.printList(false);
+    }
+    else {
+        std::cout << "No possible route.\n";
+    }
+
+    int min_weight = floyd_matrix[first_value][second_value];
+    std::cout << "Route weight = " << min_weight << "\n";
+
+    return min_weight;
 }
 
 void Graph::printAdjacencyList(int vertex) {
