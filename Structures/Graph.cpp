@@ -20,7 +20,7 @@ void Graph::addVertex(int value) {
 }
 
 void Graph::addEdge(int first_value, int second_value, int weight) {
-    if (first_value != second_value) {
+    if (first_value != second_value || weight < 0) {
         if (verticesList->exists(first_value, second_value)) {
             Node* first_vertex;
             Node* second_vertex;
@@ -51,7 +51,7 @@ void Graph::addEdge(int first_value, int second_value, int weight) {
         }
     }
     else {
-        std::cout << "Vertex inputs must be different from each other.\n";
+        std::cout << "Vertex inputs must be different from each other and weight must be positive.\n";
     }
 }
 
