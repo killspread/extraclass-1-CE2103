@@ -13,7 +13,9 @@
  */
 class Graph {
     private:
-        LinkedList* verticesList;
+        LinkedList* vertices_list;
+        int floyd_matrix[9][9];
+        int path_matrix[9][9];
 
     public:
 
@@ -38,13 +40,17 @@ class Graph {
         void addEdge(int first_value, int second_value, int weight);
 
         /**
-         * @brief Performs the Floyd-Warshall algorithm, and returns the shortest weight that needs to be traversed in
-         * order to go from one vertex to another.
-         * @param first_value The value of the beginning vertex.
-         * @param second_value The value of the ending vertex.
-         * @return The minimun weight of the path between both vertices.
+         * @brief Performs the Floyd-Warshall algorithm and updates the "floyd_matrix" and "path_matrix" attributes.
          */
-        int floydWarshall(int first_value, int second_value);
+        void floydWarshall();
+
+        /**
+         * @brief Gets the shortest route between two vertices.
+         * @param first_vertex The value of the beginning vertex.
+         * @param second_vertex The value of the ending vertex.
+         * @return A string containing the route order and weight for GUI display.
+         */
+        std::string shortestRoute(int first_vertex, int second_vertex);
 
         /**
          * @brief Prints the adjacency list of a vertex.

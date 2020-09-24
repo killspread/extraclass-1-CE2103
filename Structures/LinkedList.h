@@ -82,9 +82,11 @@ class LinkedList {
         Node* getByIndex(int i);
 
         /**
-         * @brief Prints the list to the console.
-         */
-        void printList(bool isAdjacent);
+         * @brief Creates list representation of the linked list.
+         * @param isAdjacent Boolean that determines if the list is an adjaceny list or not.
+         * @return The list representation.
+        */
+        std::string printList(bool isAdjacent);
 };
 
 #endif //EXTRACLASS_1_CE2103_LINKEDLIST_H

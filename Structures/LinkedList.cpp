@@ -105,7 +105,7 @@ Node* LinkedList::getByIndex(int i) {
 }
 
 
-void LinkedList::printList(bool isAdjacent) {
+std::string LinkedList::printList(bool isAdjacent) {
     Node* tmp = head;
     std::string output;
     for (int i = 0; i < length; i++) {
@@ -121,5 +121,5 @@ void LinkedList::printList(bool isAdjacent) {
 
     }
 
-    std::cout << output << "\n";
+    return output;
 }
