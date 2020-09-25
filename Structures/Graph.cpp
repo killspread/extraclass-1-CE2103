@@ -55,11 +55,8 @@ void Graph::addEdge(int first_value, int second_value, int weight) {
     }
 }
 
-//TODO check if both values exist on interface
-//TODO only execute Floyd once, and reconstruct path everytime asked
 void Graph::floydWarshall() {
     int vertex_number = vertices_list->getLength() ;
-    LinkedList path_list = LinkedList();
 
     int infinity = 999999;
     Node* first_vertex;

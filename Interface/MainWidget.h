@@ -13,16 +13,31 @@
 #include <Structures/Graph.h>
 #include <QtWidgets/QPushButton>
 
-
+/**
+ * @brief This class is the main window of the graphic interface.
+ */
 class MainWidget : public QWidget {
     Q_OBJECT
 
     public:
+        /**
+         * @brief Constructor for the main windows. Draws all of the GUI components and instantiates the graph.
+         * @param parent The parent of the widget. In this case, the widget is its own parent.
+         */
         explicit MainWidget(QWidget *parent = nullptr);
         ~MainWidget();
 
     private slots:
+        /**
+         * @brief Method that manages a press of the button.
+         */
         void onButtonReleased(); // handler for button presses
+
+        /**
+         * @brief Everytime the input text is edited, checks if all the required information is filled in order to
+         * enable a button.
+         */
+        void onTextChange();
 
     private:
         QLabel* label1;
@@ -31,6 +46,11 @@ class MainWidget : public QWidget {
         QLineEdit* input1;
         QLineEdit* input2;
         Graph* graph;
+
+        /**
+         * @brief Initializes the graph with all of its vertices and edges. Also performs the Floyd-Warshall algorithm.
+         */
+        void initGraph();
 };
 
 

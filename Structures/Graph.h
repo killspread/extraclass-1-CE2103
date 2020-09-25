@@ -5,7 +5,7 @@
 #ifndef EXTRACLASS_1_CE2103_GRAPH_H
 #define EXTRACLASS_1_CE2103_GRAPH_H
 
-
+#include <QtCore/QObject>
 #include "LinkedList.h"
 
 /**
@@ -14,8 +14,8 @@
 class Graph {
     private:
         LinkedList* vertices_list;
-        int floyd_matrix[9][9];
-        int path_matrix[9][9];
+        int floyd_matrix[9][9]{};
+        int path_matrix[9][9]{};
 
     public:
 
