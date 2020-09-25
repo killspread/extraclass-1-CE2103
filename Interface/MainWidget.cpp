@@ -5,7 +5,7 @@
 #include "MainWidget.h"
 #include <QtWidgets>
 #include <iostream>
-#include <sstream>
+#include <QPixmap>
 
 //TODO add graph representation
 MainWidget::MainWidget(QWidget *parent) : QWidget(parent)
@@ -32,13 +32,23 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent)
     label2 = new QLabel("");
     label2->setFixedSize(150, 25);
 
-    QGridLayout *mainLayout = new QGridLayout;
-    mainLayout->addWidget(input1, 0, 0);
-    mainLayout->addWidget(input2, 0, 2);
-    mainLayout->addWidget(button,1,1);
-    mainLayout->addWidget(label1, 2, 1);
-    mainLayout->addWidget(label2, 3, 1);
-    setLayout(mainLayout);
+    image = new QLabel();
+    QPixmap pix("/home/dani/CLionProjects/extraclass-1-CE2103/graph.png");
+    image->setPixmap(pix.scaled(450, 300, Qt::KeepAspectRatio));
+
+    QHBoxLayout *imageLayout = new QHBoxLayout;
+    imageLayout->addWidget(image, Qt::AlignCenter);
+
+    QGridLayout *gridLayout = new QGridLayout;
+    gridLayout->addWidget(input1, 1, 0);
+    gridLayout->addWidget(input2, 1, 2);
+    gridLayout->addWidget(button, 2, 1);
+    gridLayout->addWidget(label1, 3, 1);
+    gridLayout->addWidget(label2, 4, 1);
+
+    imageLayout->addLayout(gridLayout);
+
+    setLayout(imageLayout);
     setWindowTitle(tr("Shortest route between two vetices"));
 
     connect(input1, SIGNAL(textChanged(QString)), this, SLOT(onTextChange()));

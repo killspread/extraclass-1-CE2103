@@ -42,6 +42,7 @@ class MainWidget : public QWidget {
     private:
         QLabel* label1;
         QLabel* label2;
+        QLabel* image;
         QPushButton* button;
         QLineEdit* input1;
         QLineEdit* input2;
