@@ -11,8 +11,8 @@ class LinkedList; // This forward declaration is used because without it, the pr
                   // the compiler knows about the class LinkedList before it's declaration as a pointer below.
 
 /**
- * @brief A class that represents a node used in linked lists.
- */
+* @brief A class that represents a node used in linked lists.
+*/
 class Node {
     private:
         int data;
