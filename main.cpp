@@ -3,10 +3,12 @@
 //
 
 #include <Interface/MainWidget.h>
-#include <Structures/Graph.h>
-#include <iostream>
 #include "QApplication"
 
+/**
+ * @brief Main function that runs the program.
+ * @return The running instance of a Qt widget.
+ */
 int main (int argc, char* argv[]) {
     QApplication app(argc, argv);
 
