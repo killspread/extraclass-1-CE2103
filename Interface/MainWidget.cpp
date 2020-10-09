@@ -7,7 +7,6 @@
 #include <iostream>
 #include <QPixmap>
 
-//TODO add graph representation
 MainWidget::MainWidget(QWidget *parent) : QWidget(parent)
 {
     initGraph();
