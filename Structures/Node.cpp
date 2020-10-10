@@ -12,7 +12,7 @@ Node::Node(int new_data)
 }
 
 Node::Node(int new_data, int weight)
-    : data(new_data), weight(weight), next(nullptr), adjacencyList(nullptr ){}
+    : data(new_data), weight(weight), next(nullptr), adjacencyList(nullptr){}
 
 int Node::getData() {
     return data;

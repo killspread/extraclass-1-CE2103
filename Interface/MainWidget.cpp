@@ -48,7 +48,7 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent)
     imageLayout->addLayout(gridLayout);
 
     setLayout(imageLayout);
-    setWindowTitle(tr("Shortest route between two vetices"));
+    setWindowTitle(tr("Shortest route between two vertices"));
 
     connect(input1, SIGNAL(textChanged(QString)), this, SLOT(onTextChange()));
     connect(input2, SIGNAL(textChanged(QString)), this, SLOT(onTextChange()));

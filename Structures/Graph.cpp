@@ -56,7 +56,7 @@ void Graph::addEdge(int first_value, int second_value, int weight) {
 }
 
 void Graph::floydWarshall() {
-    int vertex_number = vertices_list->getLength() ;
+    int vertex_number = vertices_list->getLength();
 
     int infinity = 999999;
     Node* first_vertex;

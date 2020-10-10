@@ -19,9 +19,8 @@ class Graph {
 
     public:
 
-    /**
+        /**
          * @brief Constructor for the LinkedList class.
-         * It's a default constructor, it does not initialize any attributes.
          */
         Graph();
 
