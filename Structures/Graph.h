@@ -5,7 +5,6 @@
 #ifndef EXTRACLASS_1_CE2103_GRAPH_H
 #define EXTRACLASS_1_CE2103_GRAPH_H
 
-#include <QtCore/QObject>
 #include "LinkedList.h"
 
 /**
@@ -27,16 +26,18 @@ class Graph {
         /**
          * @brief Adds a new vertex to the graph.
          * @param value The value that the new vertex will contain. It must not be one that already in the graph.
+         * @return 0 if added successfully, 1 otherwise
          */
-        void addVertex(int value);
+        int addVertex(int value);
 
         /**
          * @brief Adds a new edge to the graph.
          * @param first_value The value contained in the first vertex.
          * @param second_value The value contained in the second vertex.
          * @param weight The weight of the new vertex to be added
+         * @return 0 if added successfully, 1 otherwise
          */
-        void addEdge(int first_value, int second_value, int weight);
+        int addEdge(int first_value, int second_value, int weight);
 
         /**
          * @brief Performs the Floyd-Warshall algorithm and updates the "floyd_matrix" and "path_matrix" attributes.
@@ -51,11 +52,7 @@ class Graph {
          */
         std::string shortestRoute(int first_vertex, int second_vertex);
 
-        /**
-         * @brief Prints the adjacency list of a vertex.
-         * @param vertex The value contained in the vertex whose list will be printed.
-         */
-        void printAdjacencyList(int vertex);
+        int getFloydResult(int first_vertex, int second_vertex);
 };
 
 

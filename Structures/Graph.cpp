@@ -8,19 +8,19 @@
 
 Graph::Graph() {
     vertices_list = new LinkedList();
-
 }
 
-void Graph::addVertex(int value) {
+int Graph::addVertex(int value) {
     if (!vertices_list->exists(value)) {
         vertices_list->append(value);
+        return 0;
     }
     else {
-        std::cout << "Value input for vertex must not be already on the graph.\n";
+        return 1;
     }
 }
 
-void Graph::addEdge(int first_value, int second_value, int weight) {
+int Graph::addEdge(int first_value, int second_value, int weight) {
     if (first_value != second_value && weight > 0) {
         if (vertices_list->exists(first_value, second_value)) {
             Node* first_vertex;
@@ -42,17 +42,21 @@ void Graph::addEdge(int first_value, int second_value, int weight) {
             if (!edge_exists) {
                 first_vertex->getAdjacencyList()->append(second_value, weight);
                 second_vertex->getAdjacencyList()->append(first_value, weight);
+                return 0;
             }
             else {
                 std::cout << "Edge already exists.\n";
+                return 1;
             }
         }
         else {
             std::cout << "One or both of the entered vertices don't exist.\n";
+            return 1;
         }
     }
     else {
         std::cout << "Vertex inputs must be different from each other and weight must be positive.\n";
+        return 1;
     }
 }
 
@@ -120,6 +124,7 @@ std::string Graph::shortestRoute(int first_vertex, int second_vertex) {
     return output;
 }
 
-void Graph::printAdjacencyList(int vertex) {
-    ((vertices_list->getByData(vertex))->getAdjacencyList())->printList(true);
+int Graph::getFloydResult(int first_vertex, int second_vertex) {
+    return floyd_matrix[first_vertex][second_vertex];
 }
+
