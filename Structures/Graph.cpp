@@ -8,6 +8,7 @@
 
 Graph::Graph() {
     vertices_list = new LinkedList();
+
 }
 
 void Graph::addVertex(int value) {

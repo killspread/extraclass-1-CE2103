@@ -3,7 +3,7 @@ project(extraclass_1_CE2103)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_PREFIX_PATH "/home/dani/Qt/5.15.1/gcc_64/cmake")
+set(CMAKE_PREFIX_PATH "/home/oscarmg310/Qt/5.15.1/gcc_64/cmake")
 
 find_package(Qt5 COMPONENTS Core Widgets Gui REQUIRED)
 
