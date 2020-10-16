@@ -5,6 +5,9 @@
 #include "gtest/gtest.h"
 #include "../Structures/Graph.h"
 
+/**
+ * Class that contains tests for the Graph class.
+ */
 class GraphTests{
 
 public:
