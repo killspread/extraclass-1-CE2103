@@ -10,6 +10,7 @@
  * @return The running instance of a Qt widget.
  */
 int main (int argc, char* argv[]) {
+
     QApplication app(argc, argv);
 
     MainWidget main;

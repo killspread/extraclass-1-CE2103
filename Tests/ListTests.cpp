@@ -70,27 +70,32 @@ Pruebas::Pruebas(){
 Pruebas* pruebas = new Pruebas();
 
 
-TEST(P1,Example){
+TEST(TestList,AddAndGet){
     EXPECT_EQ(pruebas->TestAddHead(1),1);
 }
-TEST(P2,Example){
+TEST(TestList,Exists){
     EXPECT_TRUE(pruebas->TestExist(5));
 }
-TEST(P3,Example){
+TEST(TestList,GetLength){
     EXPECT_EQ(pruebas->TestLength(),5);
 }
-TEST(P4,Example){
+TEST(TestList,GetByIndex){
     EXPECT_EQ(pruebas->TestGetIndex(2),3);
 }
-TEST(P5,Example){
+TEST(TestList,GetByData){
     EXPECT_EQ(pruebas->TestgetData(2),2);
 }
-TEST(P6,Example){
+TEST(TestList,CreateGetNode){
     EXPECT_EQ(pruebas->TestNodeData(12),12);
 }
-TEST(P7,Example){
+TEST(TestList,CreateGetWeightNode){
     EXPECT_EQ(pruebas->TestNodeWeight(12,46),46);
 }
-TEST(P8,Example){
+TEST(TestList,SetNodeNext){
     EXPECT_EQ(pruebas->TestSetNext(1,2),2);
+}
+int main(int ac, char* av[])
+{
+    testing::InitGoogleTest(&ac, av);
+    return RUN_ALL_TESTS();
 }
