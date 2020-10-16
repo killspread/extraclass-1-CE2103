@@ -37,7 +37,6 @@ GraphTests::GraphTests() {
     graph->addEdge(5, 6, 8);
 
     graph->floydWarshall();
-    graph->shortestRoute(0, 3);
 }
 
 GraphTests* graphTests = new GraphTests();
