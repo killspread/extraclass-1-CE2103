@@ -7,7 +7,7 @@
 #include "../Structures/LinkedList.h"
 
 
-class Pruebas{
+class ListTests{
 
 public:
     int TestAddHead(int);
@@ -19,10 +19,10 @@ public:
     int TestNodeData(int);
     int TestNodeWeight(int, int);
     int TestSetNext(int, int);
-    Pruebas();
+    ListTests();
     LinkedList* List;
 };
-void Pruebas::createList() {
+void ListTests::createList() {
     List = new LinkedList();
     List->append(1);
     List->append(2);
@@ -30,72 +30,67 @@ void Pruebas::createList() {
     List->append(4);
     List->append(5);
 }
-int Pruebas::TestAddHead(int num){
+int ListTests::TestAddHead(int num){
     createList();
     return List->getHead()->getData();
 }
-bool Pruebas::TestExist(int data) {
+bool ListTests::TestExist(int data) {
     createList();
     return List->exists(data);
 }
-int Pruebas::TestLength() {
+int ListTests::TestLength() {
     createList();
     return List->getLength();
 }
-int Pruebas::TestGetIndex(int index) {
+int ListTests::TestGetIndex(int index) {
     createList();
     return List->getByIndex(index)->getData();
 }
-int Pruebas::TestgetData(int data) {
+int ListTests::TestgetData(int data) {
     createList();
     return List->getByData(data)->getData();
 }
-int Pruebas::TestNodeData(int data) {
+int ListTests::TestNodeData(int data) {
     Node* node = new Node(data);
     return node->getData();
 }
-int Pruebas::TestNodeWeight(int data, int weight) {
+int ListTests::TestNodeWeight(int data, int weight) {
     Node* node = new Node(data,weight);
     return node->getWeight();
 }
-int Pruebas::TestSetNext(int previous, int next) {
+int ListTests::TestSetNext(int previous, int next) {
     Node* NodePrev = new Node(previous);
     Node* NodeNext = new Node(next);
     NodePrev->setNext(NodeNext);
     return NodePrev->getNext()->getData();
 }
-Pruebas::Pruebas(){
+ListTests::ListTests(){
 
 }
-Pruebas* pruebas = new Pruebas();
+ListTests* tests = new ListTests();
 
 
 TEST(TestList,AddAndGet){
-    EXPECT_EQ(pruebas->TestAddHead(1),1);
+    EXPECT_EQ(tests->TestAddHead(1),1);
 }
 TEST(TestList,Exists){
-    EXPECT_TRUE(pruebas->TestExist(5));
+    EXPECT_TRUE(tests->TestExist(5));
 }
 TEST(TestList,GetLength){
-    EXPECT_EQ(pruebas->TestLength(),5);
+    EXPECT_EQ(tests->TestLength(),5);
 }
 TEST(TestList,GetByIndex){
-    EXPECT_EQ(pruebas->TestGetIndex(2),3);
+    EXPECT_EQ(tests->TestGetIndex(2),3);
 }
 TEST(TestList,GetByData){
-    EXPECT_EQ(pruebas->TestgetData(2),2);
+    EXPECT_EQ(tests->TestgetData(2),2);
 }
 TEST(TestList,CreateGetNode){
-    EXPECT_EQ(pruebas->TestNodeData(12),12);
+    EXPECT_EQ(tests->TestNodeData(12),12);
 }
 TEST(TestList,CreateGetWeightNode){
-    EXPECT_EQ(pruebas->TestNodeWeight(12,46),46);
+    EXPECT_EQ(tests->TestNodeWeight(12,46),46);
 }
 TEST(TestList,SetNodeNext){
-    EXPECT_EQ(pruebas->TestSetNext(1,2),2);
-}
-int main(int ac, char* av[])
-{
-    testing::InitGoogleTest(&ac, av);
-    return RUN_ALL_TESTS();
+    EXPECT_EQ(tests->TestSetNext(1,2),2);
 }
